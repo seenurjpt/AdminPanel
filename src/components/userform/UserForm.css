@@ -1,0 +1,117 @@
+.user_form_container {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(2px);
+}
+
+.user_form {
+    width: 28rem;
+    background-color: #ffffff;
+    border-radius: 3rem 0.3rem;
+    padding: 2rem;
+    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5)
+}
+
+.user_form .close_icon_container {
+    display: flex;
+    justify-content: end;
+}
+
+.user_form .close_icon {
+    transform: rotate(45deg);
+    margin: -1rem;
+    color: #881981;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.user_form h2 {
+    color: #5f2566;
+}
+
+.user_form .form_heading {
+    display: flex;
+    justify-content: center;
+}
+
+.user_form .form_inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.form_inputs .input_check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input_check input[id=terms_conditions]+label {
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    border: 3px solid #808080;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.input_check input[id=terms_conditions]:checked+label {
+    border: 3px solid #8d5295;
+}
+
+.input_check input[id=terms_conditions]:checked+label:after {
+    position: relative;
+    top: -2px;
+    left: 2px;
+    content: '\2714';
+    font-size: 14px;
+    color: #8d5295;
+}
+
+.input_check p {
+    color: #8d5295;
+    font-weight: bolder;
+}
+
+.form_inputs .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.buttons button {
+    background: gray;
+    box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.5);
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+    color: #ffffff;
+    height: 2rem;
+    width: 6rem;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}
+
+.buttons button:active {
+    transform: scale(0.95);
+}
+
+.buttons .signup_btn {
+    background-color: #247830;
+}
+
+.buttons .signup_btn:hover {
+    background-color: #1e6629;
+}
+
+.buttons .reset_btn {
+    background-color: #b452c1;
+}
+
+.buttons .reset_btn:hover {
+    background-color: #90419a;
+}

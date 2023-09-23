@@ -1,0 +1,36 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.user_details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.user_details .users_icon, .adduser_icon{
+    padding-inline: 10px;
+    color: #0c74dc;
+    font-size: 2rem !important;
+    cursor: pointer;
+}
+.search_bar{
+    display: flex;
+    align-items: center;
+}
+.search_bar .search_icon{
+    position: absolute;
+    padding-inline: 10px;
+    color: #808080;
+}
+.search_bar #outlined-basic{
+    position: relative;
+    height:0.5rem;
+    width: 12rem;
+    padding-left: 2.5rem;
+}
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

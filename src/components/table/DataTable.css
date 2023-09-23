@@ -1,0 +1,47 @@
+.data_table{
+    margin-top: 2rem;
+}
+.data_table .edit_icon{
+    color: #0c74dc;
+    cursor: pointer;
+}
+.data_table .delete_icon{
+    color: #e43c2c;
+    cursor: pointer;
+}
+
+.delete_modal_container{
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: brightness(50%);
+}
+.delete_modal{
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+.delete_modal .delete_modal_icon{
+    color: #e43c2c;
+    font-size: 5rem;
+}
+.delete_modal p{
+    color: #808080;
+}
+.delete_modal .buttons{
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+}
+.delete_modal .buttons .cancel{
+    background-color: #e43c2c;
+    cursor: pointer;
+}
+.delete_modal .buttons .delete{
+    background-color: #0c74dc;
+    cursor: pointer;
+}
