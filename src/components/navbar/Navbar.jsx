@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import PeopleAltRoundedIcon from "@mui/icons-material/PeopleAltRounded";
 import PersonAddRoundedIcon from "@mui/icons-material/PersonAddRounded";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { TextField } from "@mui/material";
+import UserForm from "../userform/UserForm";
 
-const Navbar = ({setIsFormModal}) => {
+const Navbar = () => {
+  const [isFormModal, setIsFormModal] = useState(false);
   return (
     <div className="navbar">
       <div className="user_details">
@@ -24,6 +26,7 @@ const Navbar = ({setIsFormModal}) => {
           />
         </div>
         <PersonAddRoundedIcon className="adduser_icon" onClick={()=>{setIsFormModal(true)}}/>
+        {!isFormModal ? <></> : <UserForm setIsFormModal={setIsFormModal} />}
       </div>
     </div>
   );

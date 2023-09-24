@@ -13,18 +13,21 @@
 .delete_modal_container{
     position: absolute;
     top: 0;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
-    backdrop-filter: brightness(50%);
+    backdrop-filter: brightness(70%);
 }
 .delete_modal{
     padding: 1rem;
     background-color: #ffffff;
     border-radius: 8px;
+    animation: zoomIn 0.5s ease both;
 }
+
 .delete_modal .delete_modal_icon{
     color: #e43c2c;
     font-size: 5rem;
@@ -35,7 +38,7 @@
 .delete_modal .buttons{
     display: flex;
     justify-content: end;
-    gap: 5px;
+    gap: 10px;
 }
 .delete_modal .buttons .cancel{
     background-color: #e43c2c;
@@ -45,3 +48,35 @@
     background-color: #0c74dc;
     cursor: pointer;
 }
+.success_alert{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    bottom: 0;
+    margin-bottom: 1rem;
+}
+.success_alert .success_alert_box{
+    width: 15rem;
+}
+.success_alert .clear_icon{
+    position: absolute;
+    margin-left: 15rem;
+    color: #ffffff;
+}
+
+@keyframes zoomIn {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50%{
+        opacity: 0.5;
+        transform: scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  

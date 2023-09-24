@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./DataTable.css";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,8 +9,13 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import BorderColorRoundedIcon from "@mui/icons-material/BorderColorRounded";
+import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
+import Alert from "@mui/material/Alert";
+import DeleteModal from "./DeleteModal";
 
-const DataTable = ({ setIsDeleteModal, setDeleteUserName }) => {
+const DataTable = () => {
+  const [isDeleteModal, setIsDeleteModal] = useState(false);
+  const [deleteUserName, setDeleteUserName] = useState("");
   const TableData = [
     {
       id: 1,
@@ -117,12 +122,26 @@ const DataTable = ({ setIsDeleteModal, setDeleteUserName }) => {
                       handleDelete(data.name);
                     }}
                   />
+                  {!isDeleteModal ? (
+                    <></>
+                  ) : (
+                    <DeleteModal
+                      setIsDeleteModal={setIsDeleteModal}
+                      username={deleteUserName}
+                    />
+                  )}
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
+      {/* <div className="success_alert">
+        <Alert variant="filled" severity="success" className="success_alert_box">
+          User Updated Successfully...
+        </Alert>
+          <ClearRoundedIcon className="clear_icon"/>
+      </div> */}
     </div>
   );
 };
