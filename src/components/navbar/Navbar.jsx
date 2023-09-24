@@ -6,7 +6,7 @@ import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { TextField } from "@mui/material";
 import UserForm from "../userform/UserForm";
 
-const Navbar = () => {
+const Navbar = ({dataArray, setDataArray}) => {
   const [isFormModal, setIsFormModal] = useState(false);
   return (
     <div className="navbar">
@@ -26,7 +26,7 @@ const Navbar = () => {
           />
         </div>
         <PersonAddRoundedIcon className="adduser_icon" onClick={()=>{setIsFormModal(true)}}/>
-        {!isFormModal ? <></> : <UserForm setIsFormModal={setIsFormModal} />}
+        {!isFormModal ? <></> : <UserForm setIsFormModal={setIsFormModal} setDataArray={setDataArray} dataArray={dataArray}/>}
       </div>
     </div>
   );

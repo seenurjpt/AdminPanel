@@ -15,7 +15,8 @@
     background-color: #ffffff;
     border-radius: 3rem 0.3rem;
     padding: 2rem;
-    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5)
+    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.1s ease-in-out;
 }
 
 .user_form .close_icon_container {
@@ -116,3 +117,13 @@
 .buttons .reset_btn:hover {
     background-color: #90419a;
 }
+
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

@@ -48,6 +48,22 @@
     background-color: #0c74dc;
     cursor: pointer;
 }
+.no_data{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+.no_data h1{
+    color: #0c74dc;
+}
+.no_data p{
+    color: #0c74dc;
+    font-size: 1rem;
+    margin-top: -0.5rem;
+}
 .success_alert{
     position: fixed;
     display: flex;

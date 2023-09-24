@@ -1,7 +1,11 @@
 import React from "react";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 
-const DeleteModal = ({ setIsDeleteModal, username }) => {
+const DeleteModal = ({ setIsDeleteModal, username, index, dataArray }) => {
+  const handleDelete = () => {
+    dataArray.splice(index, 1);
+    setIsDeleteModal(false);
+  };
   return (
     <div
       className="delete_modal_container"
@@ -26,7 +30,13 @@ const DeleteModal = ({ setIsDeleteModal, username }) => {
           >
             Cancel
           </button>
-          <button type="button" className="delete">
+          <button
+            type="button"
+            className="delete"
+            onClick={() => {
+              handleDelete();
+            }}
+          >
             Delete
           </button>
         </div>
