@@ -44,6 +44,16 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
     e.preventDefault();
     setIsFormModal(false);
   };
+  const handleReset = () => {
+    setInputData({
+      name: "",
+      address: "",
+      email: "",
+      mobile: "",
+      gender: "",
+      city: "",
+    });
+  };
   return (
     <div
       className="user_form_container"
@@ -182,7 +192,13 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
             <button type="submit" className="signup_btn">
               SIGN UP
             </button>
-            <button type="reset" className="reset_btn">
+            <button
+              type="reset"
+              className="reset_btn"
+              onClick={() => {
+                handleReset();
+              }}
+            >
               RESET
             </button>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./DataTable.css";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -16,6 +16,7 @@ import Navbar from "../navbar/Navbar";
 
 const DataTable = () => {
   const [isDeleteModal, setIsDeleteModal] = useState(false);
+  const [addUserSuccessModal, setAddUserSuccessModal] = useState(false);
   const [deleteUserName, setDeleteUserName] = useState("");
   const [deleteUserIndex, setDeleteUserIndex] = useState(0);
   let [dataArray, setDataArray] = useState([]);
@@ -25,6 +26,15 @@ const DataTable = () => {
     setDeleteUserName(name);
     setDeleteUserIndex(index)
   };
+  useEffect(() => {
+    if (dataArray.length > 0) {
+      setAddUserSuccessModal(true);
+    const timer = setTimeout(() => {
+      setAddUserSuccessModal(false);
+    }, 2000); 
+    return () => clearTimeout(timer);
+  }
+  }, [dataArray]);
 
   return (
     <>
@@ -105,12 +115,14 @@ const DataTable = () => {
             <p>Add User to Display data</p>
           </div>
         )}
-        {/* <div className="success_alert">
+        {addUserSuccessModal &&
+        <div className="success_alert">
         <Alert variant="filled" severity="success" className="success_alert_box">
           User Updated Successfully...
         </Alert>
           <ClearRoundedIcon className="clear_icon"/>
-      </div> */}
+      </div>
+        }
       </div>
     </>
   );
