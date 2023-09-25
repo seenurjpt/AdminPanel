@@ -31,7 +31,7 @@ const DataTable = () => {
       setAddUserSuccessModal(true);
     const timer = setTimeout(() => {
       setAddUserSuccessModal(false);
-    }, 2000); 
+    }, 3000); 
     return () => clearTimeout(timer);
   }
   }, [dataArray]);

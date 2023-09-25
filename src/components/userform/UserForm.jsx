@@ -84,6 +84,8 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
             onChange={(e) => {
               handleInput(e);
             }}
+            autoFocus
+            required
           />
           {/* Address Input  */}
           <TextField
@@ -96,6 +98,7 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
             onChange={(e) => {
               handleInput(e);
             }}
+            required
           />
           {/* Email Input  */}
           <TextField
@@ -107,6 +110,7 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
             onChange={(e) => {
               handleInput(e);
             }}
+            required
           />
 
           {/* Mobile Input  */}
@@ -119,6 +123,7 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
             onChange={(e) => {
               handleInput(e);
             }}
+            required
           />
 
           {/* Gender Input  */}
@@ -135,6 +140,7 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
               onChange={(e) => {
                 handleInput(e);
               }}
+              required
             >
               <FormControlLabel
                 value="male"
@@ -163,6 +169,7 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
               onChange={(e) => {
                 handleInput(e);
               }}
+              required
             >
               <MenuItem>-Select City-</MenuItem>
               <MenuItem value={"Ahmedabad"}>Ahmedabad</MenuItem>
@@ -182,6 +189,7 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
               name=""
               id="terms_conditions"
               style={{ display: "none" }}
+              required
             />
             <label htmlFor="terms_conditions"></label>
             <p>I agree to the company terms and policy</p>
