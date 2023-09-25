@@ -29,20 +29,20 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
 
   let { name, address, email, mobile, gender, city } = inputData;
   const handleSubmit = (e) => {
-    setDataArray([
-      ...dataArray,
-      { name, address, email, mobile, gender, city },
-    ]);
-    setInputData({
-      name: "",
-      address: "",
-      email: "",
-      mobile: "",
-      gender: "",
-      city: "",
-    });
-    e.preventDefault();
-    setIsFormModal(false);
+            setDataArray([
+        ...dataArray,
+        { name, address, email, mobile, gender, city },
+      ]);
+      setInputData({
+        name: "",
+        address: "",
+        email: "",
+        mobile: "",
+        gender: "",
+        city: "",
+      });
+      e.preventDefault();
+      setIsFormModal(false);
   };
   const handleReset = () => {
     setInputData({
@@ -54,6 +54,54 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
       city: "",
     });
   };
+
+  // =========== Validations ===========
+
+  // Address
+  const [addressValidation, setAddressValidation] = useState(false);
+  const [addressError, setAddressError] = useState("");
+  const validateAddress = (e) => {
+    let data = e.target.value;
+    if (data.length < 10) {
+      setAddressValidation(true);
+      setAddressError("Address should be at least 10 characters long");
+    } else {
+      setAddressValidation(false);
+      setAddressError("");
+    }
+  };
+
+  // Email
+  const [emailValidation, setEmailValidation] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const validateEmail = (e) => {
+    const email = e.target.value;
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    if (!emailPattern.test(email)) {
+      setEmailValidation(true);
+      setEmailError("Email address is not valid");
+    } else {
+      setEmailValidation(false);
+      setEmailError("");
+    }
+  };
+
+  // Mobile
+  const [mobileValidation, setMobileValidation] = useState(false);
+  const [mobileError, setMobileError] = useState("");
+  const validateMobileNumber = (e) => {
+    const mobileNumber = e.target.value;
+    const mobilePattern = /^\d{10}$/;
+    if (!mobilePattern.test(mobileNumber)) {
+      setMobileValidation(true);
+      setMobileError("Mobile should be 10 characters");
+    } else {
+      setMobileValidation(false);
+      setMobileError("");
+    }
+  };
+
   return (
     <div
       className="user_form_container"
@@ -73,7 +121,7 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
         <div className="form_heading">
           <h2>Registration</h2>
         </div>
-        <form className="form_inputs" onSubmit={handleSubmit}>
+        <form className="form_inputs" onSubmit={handleSubmit} method="post">
           {/* Name Input */}
           <TextField
             id="outlined-basic"
@@ -96,9 +144,11 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
             multiline
             rows={3}
             onChange={(e) => {
-              handleInput(e);
+              handleInput(e), validateAddress(e);
             }}
             required
+            error={addressValidation}
+            helperText={addressError}
           />
           {/* Email Input  */}
           <TextField
@@ -108,9 +158,11 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
             value={inputData.email || ""}
             variant="outlined"
             onChange={(e) => {
-              handleInput(e);
+              handleInput(e), validateEmail(e);
             }}
             required
+            error={emailValidation}
+            helperText={emailError}
           />
 
           {/* Mobile Input  */}
@@ -121,9 +173,11 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
             value={inputData.mobile || ""}
             variant="outlined"
             onChange={(e) => {
-              handleInput(e);
+              handleInput(e), validateMobileNumber(e);
             }}
             required
+            error={mobileValidation}
+            helperText={mobileError}
           />
 
           {/* Gender Input  */}
@@ -135,12 +189,11 @@ const UserForm = ({ setIsFormModal, dataArray, setDataArray }) => {
               row
               aria-labelledby="demo-row-radio-buttons-group-label"
               name="gender"
-              value={inputData.gender || ""}
+              value={inputData.gender || "male"}
               sx={{ marginLeft: "1rem" }}
               onChange={(e) => {
                 handleInput(e);
               }}
-              required
             >
               <FormControlLabel
                 value="male"
